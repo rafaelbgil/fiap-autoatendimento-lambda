@@ -29,7 +29,7 @@ def lambda_handler(event, context):
     try:
         client.admin_create_user(
             UserPoolId='us-east-1_aEdl4I2z8',
-            Username=event['cpf'],
+            Username=event['email'],
             UserAttributes=attributos,
 
             ForceAliasCreation=False,
