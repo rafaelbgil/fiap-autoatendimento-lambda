@@ -3,10 +3,6 @@ from botocore.config import Config
 
 def lambda_handler(event, context):
     config = Config(region_name='us-east-1')
-    # client = boto3.client('cognito-idp', aws_access_key_id='sua_access_key',
-    #                      aws_secret_access_key='sua_secret_key', config=config)
-
-
     client = boto3.client('cognito-idp', config=config)
     attributos = [
         {
@@ -33,7 +29,7 @@ def lambda_handler(event, context):
     try:
         client.admin_create_user(
             UserPoolId='us-east-1_aEdl4I2z8',
-            Username=event['email'],
+            Username=event['cpf'],
             UserAttributes=attributos,
 
             ForceAliasCreation=False,
