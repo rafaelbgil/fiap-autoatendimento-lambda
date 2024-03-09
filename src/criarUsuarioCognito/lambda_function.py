@@ -4,7 +4,6 @@ from botocore.config import Config
 def lambda_handler(event, context):
     config = Config(region_name='us-east-1')
     client = boto3.client('cognito-idp', config=config)
-    
     attributos = [
         {
             'Name': 'name',
