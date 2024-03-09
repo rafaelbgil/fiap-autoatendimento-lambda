@@ -32,9 +32,9 @@ jobs:
     - name: Terraform Init
       run: terraform init
 
-    # Gerar plano de execucao
-    #- name: Terraform Plan
-    # run: terraform plan -input=false
+    #Gerar plano de execucao
+    - name: Terraform Plan
+      run: terraform plan -input=false
 
     - name: Aplicar mudanca via terraform
       run: terraform apply -auto-approve -input=false
