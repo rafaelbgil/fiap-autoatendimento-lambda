@@ -1,0 +1,41 @@
+name: 'Terraform'
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  terraform:
+    name: 'Terraform'
+    runs-on: ubuntu-latest
+    environment: production
+
+    # Utilizar o bash para comandos do terraform
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    # Checkout do repositorio
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    # inicializar o terraform
+    - name: Terraform Init
+      run: terraform init
+
+    # checar estrutura da receita do terraform
+    - name: Terraform Format
+      run: terraform fmt -check
+
+    # Gerar plano de execucao
+    - name: Terraform Plan
+      run: terraform plan -input=false
+
+    - name: Aplicar mudanca via terraform
+      if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
+      run: terraform apply -auto-approve -input=false
