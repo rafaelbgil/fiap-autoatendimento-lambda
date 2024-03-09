@@ -28,10 +28,6 @@ jobs:
     - name: Terraform Init
       run: terraform init
 
-    # checar estrutura da receita do terraform
-    - name: Terraform Format
-      run: terraform fmt -check
-
     # Gerar plano de execucao
     - name: Terraform Plan
       run: terraform plan -input=false

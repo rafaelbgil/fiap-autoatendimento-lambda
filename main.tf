@@ -1,7 +1,7 @@
 variable "iam" {
-    type        = string
-    description = "Variavel utilizada para informar o iam"
-  }
+  type        = string
+  description = "Variavel utilizada para informar o iam"
+}
 terraform {
 
   required_providers {
