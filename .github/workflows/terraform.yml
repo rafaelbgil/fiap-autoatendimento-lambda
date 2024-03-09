@@ -13,7 +13,11 @@ jobs:
     name: 'Terraform'
     runs-on: ubuntu-latest
     environment: production
-
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ vars.AWS_DEFAULT_REGION }}
+      TF_VAR_iam:  ${{ vars.TF_VAR_iam }}
     # Utilizar o bash para comandos do terraform
     defaults:
       run:
