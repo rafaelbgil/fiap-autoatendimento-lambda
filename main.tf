@@ -3,7 +3,11 @@ variable "iam" {
   description = "Variavel utilizada para informar o iam"
 }
 terraform {
-
+  backend "s3" {
+    bucket = "state-terraform-fiap"
+    key    = "lambdas"
+    region = "us-east-1"
+  }
   required_providers {
     aws = {
       source  = "hashicorp/aws"

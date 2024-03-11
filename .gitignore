@@ -3,3 +3,4 @@
 *.zip
 terraform.*
 .terraform.*
+teste.py
