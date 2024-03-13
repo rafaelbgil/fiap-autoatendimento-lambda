@@ -42,7 +42,7 @@ def lambda_handler(event, context):
 
         response = client.admin_set_user_password(
             UserPoolId='us-east-1_EHvshsyoV',
-            Username=event['email'],
+            Username=event['cpf'],
             Password=event['senha'],
             Permanent=True
         )
