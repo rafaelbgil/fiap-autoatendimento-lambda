@@ -20,12 +20,7 @@ def lambda_handler(event, context):
         }
     ]
 
-    if 'cpf' in event:
-        attributos.append(
-            {'Name': 'custom:cpf',
-             'Value': event['cpf']
-             }
-        )
+    
     try:
         client.admin_create_user(
             UserPoolId='us-east-1_EHvshsyoV',
