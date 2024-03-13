@@ -34,10 +34,6 @@ def lambda_handler(event, context):
 
             ForceAliasCreation=False,
             MessageAction='SUPPRESS',
-
-            ClientMetadata={
-                'string': 'string'
-            }
         )
 
         response = client.admin_set_user_password(
