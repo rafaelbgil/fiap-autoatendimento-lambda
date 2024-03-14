@@ -1,6 +1,7 @@
 import boto3
 from botocore.config import Config
 
+
 def lambda_handler(event, context):
     config = Config(region_name='us-east-1')
     client = boto3.client('cognito-idp', config=config)
@@ -20,9 +21,8 @@ def lambda_handler(event, context):
         }
     ]
 
-    
     try:
-        client.admin_create_user(
+        response = client.admin_create_user(
             UserPoolId='us-east-1_EHvshsyoV',
             Username=event['cpf'],
             UserAttributes=attributos,
@@ -37,6 +37,8 @@ def lambda_handler(event, context):
             Password=event['senha'],
             Permanent=True
         )
+
+
     except:
         return {
             'statusCode': 400,
