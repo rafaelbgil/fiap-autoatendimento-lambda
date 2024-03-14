@@ -26,10 +26,10 @@ def lambda_handler(event, context):
             UserPoolId='us-east-1_EHvshsyoV',
             Username=event['cpf'],
             UserAttributes=attributos,
-
             ForceAliasCreation=False,
             MessageAction='SUPPRESS',
         )
+
 
         response = client.admin_set_user_password(
             UserPoolId='us-east-1_EHvshsyoV',
@@ -42,7 +42,7 @@ def lambda_handler(event, context):
     except:
         return {
             'statusCode': 400,
-            'body': 'error'
+            'body': 'error nao foi possivel criar o usuario'
         }
     client.close()
     return {
