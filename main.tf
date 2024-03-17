@@ -33,4 +33,3 @@ resource "aws_lambda_function" "criarUsuarioCognito" {
   role             = var.iam
 }
 
-
